@@ -34,10 +34,10 @@ app.get("/api/search", async (req, res) => {
       const data = await response.json();
       res.send({ data });
     } else {
-      throw new Error();
+      throw new Error(response.error);
     }
-  } catch {
-    res.send({ message: "something went wrong" });
+  } catch (error) {
+    res.send({ message: error });
   }
 });
 
@@ -57,7 +57,7 @@ app.get("/api/stylist/:id", async (req, res) => {
       throw new Error(response.error);
     }
   } catch (error) {
-    res.send("Something went wrong");
+    res.send({ error });
   }
 });
 
@@ -80,7 +80,7 @@ app.get("/api/reviews/:id", async (req, res) => {
       throw new Error(response.error);
     }
   } catch (error) {
-    res.send("Something went wrong");
+    res.send({ error });
   }
 });
 
