@@ -31,14 +31,10 @@ app.get("/api/search", async (req, res) => {
       }
     );
 
-    if (response.ok) {
-      const data = await response.json();
-      res.send({ data });
-    } else {
-      throw new Error(response.error);
-    }
+    const data = await response.json();
+    res.send({ data });
   } catch (error) {
-    res.send({ message: error });
+    res.send({ message: error.message });
   }
 });
 
@@ -51,14 +47,10 @@ app.get("/api/stylist/:id", async (req, res) => {
       headers,
     });
 
-    if (response.ok) {
-      const data = await response.json();
-      res.send({ data });
-    } else {
-      throw new Error(response.error);
-    }
+    const data = await response.json();
+    res.send({ data });
   } catch (error) {
-    res.send({ error });
+    res.send({ message: error.message });
   }
 });
 
@@ -73,15 +65,10 @@ app.get("/api/reviews/:id", async (req, res) => {
         headers,
       }
     );
-
-    if (response.ok) {
-      const data = await response.json();
-      res.send({ data });
-    } else {
-      throw new Error(response.error);
-    }
+    const data = await response.json();
+    res.send({ data });
   } catch (error) {
-    res.send({ error });
+    res.send({ message: error.message });
   }
 });
 
