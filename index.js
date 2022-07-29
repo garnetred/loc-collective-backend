@@ -2,55 +2,42 @@ const express = require("express");
 const dotenv = require("dotenv");
 const fetch = require("node-fetch");
 const app = express();
+const cors = require("cors");
 // set port
 
 const port = 3001;
 
 dotenv.config();
 
+app.use(cors());
+
 app.get("/api/search", async (req, res) => {
-  console.log("trying");
-  console.log(req.query, "req params");
-  const { term } = req.query;
-  const { location } = req.query;
-  console.log(term, "search term");
+  try {
+    const { term } = req.query;
+    const { location } = req.query;
 
-  const headers = {
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${process.env.YELP_API_KEY}`,
-  };
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${process.env.YELP_API_KEY}`,
+    };
 
-  const response = await fetch(
-    `https://api.yelp.com/v3/businesses/search?term=${term}&category=(hairstylists, US)&location=${location}&limit=50`,
-    {
-      method: "GET",
-      headers,
+    const response = await fetch(
+      `https://api.yelp.com/v3/businesses/search?term=${term}&category=(hairstylists, US)&location=${location}&limit=50`,
+      {
+        method: "GET",
+        headers,
+      }
+    );
+
+    if (response.ok) {
+      const data = await response.json();
+      res.send({ data });
+    } else {
+      throw new Error();
     }
-  );
-
-  const data = await response.json();
-  console.log(data, "data");
-  res.send({ message: data });
-  //   res.send({ message: "ok" });
-  //   try {
-  //     // need to send network request and append api key
-  //     // then return the result to the front end
-  //     // need to create a new headers object?
-  //     // should append authorization header to new headers
-  //   } catch (error) {
-  //     console.error(error);
-  //     console.log("error");
-  //     res.send({ error });
-  //   }
-});
-
-app.get("/hi", (req, res) => {
-  console.log("at least it logged");
-  res.send("called");
-});
-
-app.get("/", (req, res) => {
-  res.send("GET Request Called");
+  } catch {
+    res.send({ message: "something went wrong" });
+  }
 });
 
 app.listen(port, () => {
