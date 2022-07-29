@@ -11,6 +11,7 @@ const port = process.env.NODE_ENV !== "production" ? 3001 : process.env.PORT;
 dotenv.config();
 
 app.use(cors());
+app.use(express.favicon("images/favicon.ico"));
 
 const headers = {
   "Content-Type": "application/json",
