@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 const fetch = require("node-fetch");
 const app = express();
 const cors = require("cors");
-const e = require("express");
+const favicon = require("serve-favicon");
 // set port
 
 const port = process.env.NODE_ENV !== "production" ? 3001 : process.env.PORT;
@@ -11,7 +11,7 @@ const port = process.env.NODE_ENV !== "production" ? 3001 : process.env.PORT;
 dotenv.config();
 
 app.use(cors());
-app.use(express.favicon("images/favicon.ico"));
+app.use(favicon(__dirname + "images/favicon.ico"));
 
 const headers = {
   "Content-Type": "application/json",
