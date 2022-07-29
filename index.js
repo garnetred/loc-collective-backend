@@ -6,7 +6,7 @@ const cors = require("cors");
 const e = require("express");
 // set port
 
-const port = 3001;
+const port = process.env.NODE_ENV !== "production" ? 3001 : process.env.PORT;
 
 dotenv.config();
 
