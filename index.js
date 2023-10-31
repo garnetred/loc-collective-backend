@@ -1,17 +1,9 @@
-// import express from 'express';
 const express = require('express');
 const { config } = require('dotenv');
-// import { config } from 'dotenv';
 const fetch = require('node-fetch');
-// import fetch from 'node-fetch';
 const cors = require('cors');
 const app = express();
 const favicon = require('serve-favicon');
-
-// import cors from 'cors';
-// import favicon from 'serve-favicon';
-// import path from 'path';
-// const __dirname = path.resolve();
 // set port
 
 const port = process.env.NODE_ENV !== 'production' ? 3001 : process.env.PORT;

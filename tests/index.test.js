@@ -5,6 +5,8 @@ const nock = require('nock');
 const mockSearchData = require('../mocks/searchData.json');
 const mockStylistData = require('../mocks/stylistData.json');
 const mockReviewData = require('../mocks/reviewData.json');
+const mockErrorData = require('../mocks/errorData.json');
+const mockErrorLocationData = require('../mocks/errorLocationData.json');
 // const jest = require('jest');
 
 // const app = express();
@@ -22,8 +24,21 @@ describe('GET results', () => {
       `/api/search?term=${term}&location=${location}`,
     );
     expect(res.status).toBe(200);
-    console.log(res.body);
     expect(res.body.data).toEqual(mockSearchData);
+  });
+  it('should display an error message if there is no search term or location', async () => {
+    const term = null;
+    const location = null;
+    nock('https://api.yelp.com')
+      .get(
+        `/v3/businesses/search?term=${term}&category=(hairstylists, US)&location=${location}&limit=50`,
+      )
+      .reply(200, mockErrorLocationData);
+    const res = await request(app).get(
+      `/api/search?term=${term}&location=${location}`,
+    );
+    expect(res.status).toBe(200);
+    expect(res.body.data).toEqual(mockErrorLocationData);
   });
 
   it('should get stylists based on a stylist id', async () => {
@@ -31,9 +46,8 @@ describe('GET results', () => {
     nock('https://api.yelp.com')
       .get(`/v3/businesses/${id}`)
       .reply(200, mockStylistData);
-    const res = await request(app).get(`/api/stylist/abcdef`);
+    const res = await request(app).get(`/api/stylist/${id}`);
     expect(res.status).toBe(200);
-    console.log(res.body);
     expect(res.body.data).toEqual(mockStylistData);
   });
 
@@ -42,9 +56,28 @@ describe('GET results', () => {
     nock('https://api.yelp.com')
       .get(`/v3/businesses/${id}/reviews`)
       .reply(200, mockReviewData);
-    const res = await request(app).get(`/api/reviews/abcdef`);
+    const res = await request(app).get(`/api/reviews/${id}`);
     expect(res.status).toBe(200);
-    console.log(res.body);
     expect(res.body.data).toEqual(mockReviewData);
+  });
+
+  it('should display an error message if stylist is not found', async () => {
+    const id = 'randomid';
+    nock('https://api.yelp.com')
+      .get(`/v3/businesses/${id}`)
+      .reply(200, mockErrorData);
+    const res = await request(app).get(`/api/stylist/${id}`);
+    expect(res.status).toBe(200);
+    expect(res.body.data).toEqual(mockErrorData);
+  });
+
+  it('should display an error message for reviews if stylist id is not found', async () => {
+    const id = 'randomid';
+    nock('https://api.yelp.com')
+      .get(`/v3/businesses/${id}/reviews`)
+      .reply(200, mockErrorData);
+    const res = await request(app).get(`/api/reviews/${id}`);
+    expect(res.status).toBe(200);
+    expect(res.body.data).toEqual(mockErrorData);
   });
 });
