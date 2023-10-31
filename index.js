@@ -82,6 +82,6 @@ app.get('/api/reviews/:id', async (req, res) => {
 
 app.get('/api/reviews', async (req, res) => {});
 
-app.listen(port, () => {
+module.exports = app.listen(port, () => {
   console.log(`Server is now listening on port ${port}`);
 });

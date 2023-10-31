@@ -13,13 +13,18 @@ describe('GET search results', () => {
   });
 
   it('should get search results based on a term and location', async () => {
-    const term = 'interlocks+sisterlocks';
+    const term = 'interlocks';
     const location = 'boston';
     nock('https://api.yelp.com')
-      .get(`/v3/businesses/search?term=${term}&location=${location}`)
+      .get(
+        `/v3/businesses/search?term=${term}&category=(hairstylists, US)&location=${location}&limit=50`,
+      )
       .reply(200, mockSearchData);
-    const res = await request(app).get(`/api/search`);
+    const res = await request(app).get(
+      `/api/search?term=${term}&location=${location}`,
+    );
     expect(res.status).toBe(200);
-    console.log(res);
+    console.log(res.body);
+    expect(res.body.data).toEqual(mockSearchData);
   });
 });
