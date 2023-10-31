@@ -1,9 +1,11 @@
 # loc-collective-backend
 
 # About 
-This is the backend api to the front end application [Loc Collective](https://github.com/garnetred/loc-collective).
+This is the api to the front end application [Loc Collective](https://github.com/garnetred/loc-collective).
 
 # Tools 
-Technologies used include Node and Express. 
+Technologies used include NodeJS and Express. 
+
+The API is deployed using Render (not Vercel). 
 
 
