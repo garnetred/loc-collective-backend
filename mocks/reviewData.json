@@ -1,0 +1,36 @@
+{
+    "data": {
+        "reviews": [
+            {
+                "id": "3gFMlJGoTsXbNXeh",
+                "url": "someurl.com/hairstylist-a",
+                "text": "Worst decision of my life",
+                "rating": 5,
+                "time_created": "2023-09-18 05:18:10",
+                "user": {
+                    "id": "nclKpcZKIoCHYMKe",
+                    "profile_url": "someurl.com/profile/nclKpcZKIoCHYMKe",
+                    "image_url": null,
+                    "name": "Disappointed Customer"
+                }
+            },
+            {
+                "id": "nuVtrPow9GMUfAl9",
+                "url": "someurl.com/hairstylist-a",
+                "text": "Best hairstylist ever, book now!!",
+                "rating": 5,
+                "time_created": "2019-04-30 19:05:31",
+                "user": {
+                    "id": "MqBs0LvOdt2jXwLu",
+                    "profile_url": "someurl.com/profile/MqBs0LvOdt2jXwLu",
+                    "image_url": "https://testimagetest.jpg",
+                    "name": "Rachel E."
+                }
+            }
+        ],
+        "total": 2,
+        "possible_languages": [
+            "en"
+        ]
+    }
+}

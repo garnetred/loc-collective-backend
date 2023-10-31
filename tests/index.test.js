@@ -3,15 +3,12 @@ const request = require('supertest');
 const app = require('../index');
 const nock = require('nock');
 const mockSearchData = require('../mocks/searchData.json');
+const mockReviewData = require('../mocks/reviewData.json');
 // const jest = require('jest');
 
 // const app = express();
 
-describe('GET search results', () => {
-  it('does a thing', () => {
-    expect(true).toBe(true);
-  });
-
+describe('GET results', () => {
   it('should get search results based on a term and location', async () => {
     const term = 'interlocks';
     const location = 'boston';
@@ -26,5 +23,27 @@ describe('GET search results', () => {
     expect(res.status).toBe(200);
     console.log(res.body);
     expect(res.body.data).toEqual(mockSearchData);
+  });
+
+  it.skip('should get stylists based on a stylist id', async () => {
+    const id = 'abcdef';
+    nock('https://api.yelp.com')
+      .get(`/v3/businesses/${id}/reviews`)
+      .reply(200, mockSearchData);
+    const res = await request(app).get(`/api/reviews/abcdef`);
+    expect(res.status).toBe(200);
+    console.log(res.body);
+    expect(res.body.data).toEqual(mockSearchData);
+  });
+
+  it('should get reviews based on a stylist id', async () => {
+    const id = 'abcdef';
+    nock('https://api.yelp.com')
+      .get(`/v3/businesses/${id}/reviews`)
+      .reply(200, mockReviewData);
+    const res = await request(app).get(`/api/reviews/abcdef`);
+    expect(res.status).toBe(200);
+    console.log(res.body);
+    expect(res.body.data).toEqual(mockReviewData);
   });
 });
