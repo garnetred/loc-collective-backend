@@ -1,24 +1,24 @@
-const express = require("express");
-const dotenv = require("dotenv");
-const fetch = require("node-fetch");
+const express = require('express');
+const { config } = require('dotenv');
+const fetch = require('node-fetch');
+const cors = require('cors');
 const app = express();
-const cors = require("cors");
-const favicon = require("serve-favicon");
+const favicon = require('serve-favicon');
 // set port
 
-const port = process.env.NODE_ENV !== "production" ? 3001 : process.env.PORT;
+const port = process.env.NODE_ENV !== 'production' ? 3001 : process.env.PORT;
 
-dotenv.config();
+config();
 
 app.use(cors());
-app.use(favicon(__dirname + "/images/favicon.ico"));
+app.use(favicon(__dirname + '/images/favicon.ico'));
 
 const headers = {
-  "Content-Type": "application/json",
+  'Content-Type': 'application/json',
   Authorization: `Bearer ${process.env.YELP_API_KEY}`,
 };
 
-app.get("/api/search", async (req, res) => {
+app.get('/api/search', async (req, res) => {
   try {
     const { term } = req.query;
     const { location } = req.query;
@@ -26,9 +26,9 @@ app.get("/api/search", async (req, res) => {
     const response = await fetch(
       `https://api.yelp.com/v3/businesses/search?term=${term}&category=(hairstylists, US)&location=${location}&limit=50`,
       {
-        method: "GET",
+        method: 'GET',
         headers,
-      }
+      },
     );
 
     const data = await response.json();
@@ -38,12 +38,12 @@ app.get("/api/search", async (req, res) => {
   }
 });
 
-app.get("/api/stylist/:id", async (req, res) => {
+app.get('/api/stylist/:id', async (req, res) => {
   try {
     const { id } = req.params;
 
     const response = await fetch(`https://api.yelp.com/v3/businesses/${id}`, {
-      method: "GET",
+      method: 'GET',
       headers,
     });
 
@@ -54,16 +54,16 @@ app.get("/api/stylist/:id", async (req, res) => {
   }
 });
 
-app.get("/api/reviews/:id", async (req, res) => {
+app.get('/api/reviews/:id', async (req, res) => {
   try {
     const { id } = req.params;
 
     const response = await fetch(
       `https://api.yelp.com/v3/businesses/${id}/reviews`,
       {
-        method: "GET",
+        method: 'GET',
         headers,
-      }
+      },
     );
     const data = await response.json();
     res.send({ data });
@@ -72,8 +72,8 @@ app.get("/api/reviews/:id", async (req, res) => {
   }
 });
 
-app.get("/api/reviews", async (req, res) => {});
+app.get('/api/reviews', async (req, res) => {});
 
-app.listen(port, () => {
+module.exports = app.listen(port, () => {
   console.log(`Server is now listening on port ${port}`);
 });
