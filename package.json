@@ -1,10 +1,11 @@
 {
   "name": "loc-collective-backend",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
@@ -27,6 +28,7 @@
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
-    "eslint": "^8.20.0"
+    "eslint": "^8.20.0",
+    "jest": "^29.7.0"
   }
 }

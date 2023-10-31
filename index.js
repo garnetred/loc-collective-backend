@@ -1,17 +1,19 @@
-const express = require("express");
-const dotenv = require("dotenv");
-const fetch = require("node-fetch");
+import express from "express";
+import { config } from "dotenv";
+import fetch from "node-fetch";
 const app = express();
-const cors = require("cors");
-const favicon = require("serve-favicon");
+import cors from "cors";
+import favicon from "serve-favicon";
+import path from 'path';
+const __dirname = path.resolve()
 // set port
 
 const port = process.env.NODE_ENV !== "production" ? 3001 : process.env.PORT;
 
-dotenv.config();
+config();
 
 app.use(cors());
-app.use(favicon(__dirname + "/images/favicon.ico"));
+app.use(favicon(__dirname + '/images/favicon.ico'));
 
 const headers = {
   "Content-Type": "application/json",
