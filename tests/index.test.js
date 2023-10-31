@@ -3,6 +3,7 @@ const request = require('supertest');
 const app = require('../index');
 const nock = require('nock');
 const mockSearchData = require('../mocks/searchData.json');
+const mockStylistData = require('../mocks/stylistData.json');
 const mockReviewData = require('../mocks/reviewData.json');
 // const jest = require('jest');
 
@@ -25,15 +26,15 @@ describe('GET results', () => {
     expect(res.body.data).toEqual(mockSearchData);
   });
 
-  it.skip('should get stylists based on a stylist id', async () => {
+  it('should get stylists based on a stylist id', async () => {
     const id = 'abcdef';
     nock('https://api.yelp.com')
-      .get(`/v3/businesses/${id}/reviews`)
-      .reply(200, mockSearchData);
-    const res = await request(app).get(`/api/reviews/abcdef`);
+      .get(`/v3/businesses/${id}`)
+      .reply(200, mockStylistData);
+    const res = await request(app).get(`/api/stylist/abcdef`);
     expect(res.status).toBe(200);
     console.log(res.body);
-    expect(res.body.data).toEqual(mockSearchData);
+    expect(res.body.data).toEqual(mockStylistData);
   });
 
   it('should get reviews based on a stylist id', async () => {

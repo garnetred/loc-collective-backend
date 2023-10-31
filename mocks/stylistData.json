@@ -1,0 +1,77 @@
+{
+    "data": {
+        "id": "abcdef",
+        "alias": "hairstylist-a",
+        "name": "Hairstylist A",
+        "image_url": "https://sometesttest.jpg",
+        "is_claimed": true,
+        "is_closed": false,
+        "url": "https://businessurl.com",
+        "phone": "+1234567899",
+        "display_phone": "(123) 456-7899",
+        "review_count": 2,
+        "categories": [
+            {
+                "alias": "hairstylists",
+                "title": "Hair Stylists"
+            }
+        ],
+        "rating": 5,
+        "location": {
+            "address1": "1234 Main St",
+            "address2": null,
+            "address3": "",
+            "city": "Boston ",
+            "zip_code": "02155",
+            "country": "US",
+            "state": "MA",
+            "display_address": [
+                "1234 Main St",
+                "Boston , MA 02155"
+            ],
+            "cross_streets": ""
+        },
+        "coordinates": {
+            "latitude": 42.33108489188796,
+            "longitude": -71.1196336
+        },
+        "photos": [
+            "https://someurl.com/photo1",
+            "https://someurl.com/photo2"
+        ],
+        "price": "$$",
+        "hours": [
+            {
+                "open": [
+                    {
+                        "is_overnight": false,
+                        "start": "1000",
+                        "end": "1500",
+                        "day": 1
+                    },
+                    {
+                        "is_overnight": false,
+                        "start": "1000",
+                        "end": "1500",
+                        "day": 2
+                    },
+                    {
+                        "is_overnight": false,
+                        "start": "1000",
+                        "end": "1800",
+                        "day": 4
+                    },
+                    {
+                        "is_overnight": false,
+                        "start": "1000",
+                        "end": "1400",
+                        "day": 5
+                    }
+                ],
+                "hours_type": "REGULAR",
+                "is_open_now": false
+            }
+        ],
+        "transactions": []
+    }
+}
