@@ -38,7 +38,7 @@ describe('GET results', () => {
     expect(res.body.data).toEqual(mockErrorLocationData);
   });
 
-  it('should display an error message if locatin or search term is missing', async () => {
+  it('should display an error message if location or search term is missing', async () => {
     const term = 'sisterlocks';
     const location = '';
     nock('https://api.yelp.com')
