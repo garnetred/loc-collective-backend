@@ -1,0 +1,98 @@
+{
+    "data": {
+        "businesses": [
+            {
+                "id": "abcdefg",
+                "alias": "hairstylist-a",
+                "name": "Hairstylist A",
+                "image_url": "somesite.jpg",
+                "is_closed": false,
+                "url": "someurl.com",
+                "review_count": 6,
+                "categories": [
+                    {
+                        "alias": "roofing",
+                        "title": "Roofing"
+                    },
+                    {
+                        "alias": "contractors",
+                        "title": "General Contractors"
+                    }
+                ],
+                "rating": 1,
+                "coordinates": {
+                    "latitude": 42.112375363826885,
+                    "longitude": -71.24712227537802
+                },
+                "transactions": [],
+                "location": {
+                    "address1": "7- 25 Walpole Park S",
+                    "address2": null,
+                    "address3": null,
+                    "city": "Walpole",
+                    "zip_code": "02081",
+                    "country": "US",
+                    "state": "MA",
+                    "display_address": [
+                        "7- 25 Walpole Park S",
+                        "Walpole, MA 02081"
+                    ]
+                },
+                "phone": "+15082577859",
+                "display_phone": "(508) 257-7859",
+                "distance": 29920.313137588986
+            },
+            {
+                "id": "pkdEQ_hdJkccHVLdqNkA_Q",
+                "alias": "asa-road-service-billerica-2",
+                "name": "ASA Road Service",
+                "image_url": "",
+                "is_closed": false,
+                "url": "https://www.yelp.com/biz/asa-road-service-billerica-2?adjust_creative=4b4u9NSjrFIuzcuj_TKnAQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=4b4u9NSjrFIuzcuj_TKnAQ",
+                "review_count": 1,
+                "categories": [
+                    {
+                        "alias": "tires",
+                        "title": "Tires"
+                    },
+                    {
+                        "alias": "interlocksystems",
+                        "title": "Interlock Systems"
+                    },
+                    {
+                        "alias": "roadsideassist",
+                        "title": "Roadside Assistance"
+                    }
+                ],
+                "rating": 5,
+                "coordinates": {
+                    "latitude": 42.55016371619956,
+                    "longitude": -71.2521742463945
+                },
+                "transactions": [],
+                "location": {
+                    "address1": null,
+                    "address2": null,
+                    "address3": null,
+                    "city": "Billerica",
+                    "zip_code": "01821",
+                    "country": "US",
+                    "state": "MA",
+                    "display_address": [
+                        "Billerica, MA 01821"
+                    ]
+                },
+                "phone": "+16173986529",
+                "display_phone": "(617) 398-6529",
+                "distance": 26953.612263823954
+            }
+        ],
+        "total": 2,
+        "region": {
+            "center": {
+                "longitude": -71.07124328613281,
+                "latitude": 42.34784169448538
+            }
+        }
+    }
+}
