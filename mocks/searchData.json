@@ -2,89 +2,79 @@
     "data": {
         "businesses": [
             {
-                "id": "abcdefg",
+                "id": "abcdef",
                 "alias": "hairstylist-a",
                 "name": "Hairstylist A",
-                "image_url": "somesite.jpg",
+                "image_url": "https://someurl.jpg",
                 "is_closed": false,
-                "url": "someurl.com",
-                "review_count": 6,
+                "url": "https://www.awebsite.com",
+                "review_count": 2,
                 "categories": [
                     {
-                        "alias": "roofing",
-                        "title": "Roofing"
-                    },
-                    {
-                        "alias": "contractors",
-                        "title": "General Contractors"
-                    }
-                ],
-                "rating": 1,
-                "coordinates": {
-                    "latitude": 42.112375363826885,
-                    "longitude": -71.24712227537802
-                },
-                "transactions": [],
-                "location": {
-                    "address1": "7- 25 Walpole Park S",
-                    "address2": null,
-                    "address3": null,
-                    "city": "Walpole",
-                    "zip_code": "02081",
-                    "country": "US",
-                    "state": "MA",
-                    "display_address": [
-                        "7- 25 Walpole Park S",
-                        "Walpole, MA 02081"
-                    ]
-                },
-                "phone": "+15082577859",
-                "display_phone": "(508) 257-7859",
-                "distance": 29920.313137588986
-            },
-            {
-                "id": "pkdEQ_hdJkccHVLdqNkA_Q",
-                "alias": "asa-road-service-billerica-2",
-                "name": "ASA Road Service",
-                "image_url": "",
-                "is_closed": false,
-                "url": "https://www.yelp.com/biz/asa-road-service-billerica-2?adjust_creative=4b4u9NSjrFIuzcuj_TKnAQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=4b4u9NSjrFIuzcuj_TKnAQ",
-                "review_count": 1,
-                "categories": [
-                    {
-                        "alias": "tires",
-                        "title": "Tires"
-                    },
-                    {
-                        "alias": "interlocksystems",
-                        "title": "Interlock Systems"
-                    },
-                    {
-                        "alias": "roadsideassist",
-                        "title": "Roadside Assistance"
+                        "alias": "hairstylists",
+                        "title": "Hair Stylists"
                     }
                 ],
                 "rating": 5,
                 "coordinates": {
-                    "latitude": 42.55016371619956,
-                    "longitude": -71.2521742463945
+                    "latitude": 42.33108489188796,
+                    "longitude": -71.1196336
                 },
                 "transactions": [],
+                "price": "$$",
                 "location": {
-                    "address1": null,
+                    "address1": "1234 St",
                     "address2": null,
-                    "address3": null,
-                    "city": "Billerica",
-                    "zip_code": "01821",
+                    "address3": "",
+                    "city": "Boston ",
+                    "zip_code": "02155",
                     "country": "US",
                     "state": "MA",
                     "display_address": [
-                        "Billerica, MA 01821"
+                        "1234 Main St",
+                        "Boston , MA 02155"
                     ]
                 },
-                "phone": "+16173986529",
-                "display_phone": "(617) 398-6529",
-                "distance": 26953.612263823954
+                "phone": "+1234567899",
+                "display_phone": "(123) 456-7899",
+                "distance": 4392.094659417286
+            },
+            {
+                "id": "ghijkl",
+                "alias": "hairstylist-b",
+                "name": "Hairstylist B",
+                "image_url": "https://testimage.jpg",
+                "is_closed": false,
+                "url": "https://someotherwebsite.com",
+                "review_count": 2,
+                "categories": [
+                    {
+                        "alias": "hairstylists",
+                        "title": "Hair Stylists"
+                    }
+                ],
+                "rating": 3.5,
+                "coordinates": {
+                    "latitude": 42.2231618,
+                    "longitude": -71.0345454
+                },
+                "transactions": [],
+                "location": {
+                    "address1": "100 Merry Ln",
+                    "address2": null,
+                    "address3": "",
+                    "city": "Medford",
+                    "zip_code": "02048",
+                    "country": "US",
+                    "state": "MA",
+                    "display_address": [
+                        "100 Merry Ln",
+                        "Brainteee, MA 02048"
+                    ]
+                },
+                "phone": "+19876543211",
+                "display_phone": "(987) 654-3211",
+                "distance": 14188.627363725625
             }
         ],
         "total": 2,

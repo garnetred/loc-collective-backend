@@ -1,6 +1,5 @@
 {
   "name": "loc-collective-backend",
-  "type": "module",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,7 +11,10 @@
   "jest": {
     "coveragePathIgnorePatterns": [
       "/node_modules/"
-    ]
+    ],
+     "transform": {
+    "^.+\\.[t|j]sx?$": "babel-jest"
+  }
   },
   "repository": {
     "type": "git",
