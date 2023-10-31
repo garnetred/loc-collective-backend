@@ -1,5 +1,4 @@
 const request = require('supertest');
-// const express = require('express');
 const app = require('../index');
 const nock = require('nock');
 const mockSearchData = require('../mocks/searchData.json');
@@ -8,9 +7,6 @@ const mockReviewData = require('../mocks/reviewData.json');
 const mockErrorData = require('../mocks/errorData.json');
 const mockErrorLocationData = require('../mocks/errorLocationData.json');
 const mockErrorValidationData = require('../mocks/errorValidationData.json');
-// const jest = require('jest');
-
-// const app = express();
 
 describe('GET results', () => {
   it('should get search results based on a term and location', async () => {
