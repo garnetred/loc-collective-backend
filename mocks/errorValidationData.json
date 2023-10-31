@@ -1,0 +1,10 @@
+{
+    "data": {
+        "error": {
+            "code": "VALIDATION_ERROR",
+            "description": "'' is too short",
+            "field": "location",
+            "instance": ""
+        }
+    }
+}

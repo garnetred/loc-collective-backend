@@ -7,6 +7,7 @@ const mockStylistData = require('../mocks/stylistData.json');
 const mockReviewData = require('../mocks/reviewData.json');
 const mockErrorData = require('../mocks/errorData.json');
 const mockErrorLocationData = require('../mocks/errorLocationData.json');
+const mockErrorValidationData = require('../mocks/errorValidationData.json');
 // const jest = require('jest');
 
 // const app = express();
@@ -39,6 +40,21 @@ describe('GET results', () => {
     );
     expect(res.status).toBe(200);
     expect(res.body.data).toEqual(mockErrorLocationData);
+  });
+
+  it('should display an error message if locatin or search term is missing', async () => {
+    const term = 'sisterlocks';
+    const location = '';
+    nock('https://api.yelp.com')
+      .get(
+        `/v3/businesses/search?term=${term}&category=(hairstylists, US)&location=${location}&limit=50`,
+      )
+      .reply(200, mockErrorValidationData);
+    const res = await request(app).get(
+      `/api/search?term=${term}&location=${location}`,
+    );
+    expect(res.status).toBe(200);
+    expect(res.body.data).toEqual(mockErrorValidationData);
   });
 
   it('should get stylists based on a stylist id', async () => {
