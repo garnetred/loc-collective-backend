@@ -9,6 +9,26 @@ const mockErrorLocationData = require('../mocks/errorLocationData.json');
 const mockErrorValidationData = require('../mocks/errorValidationData.json');
 
 describe('GET results', () => {
+  it('should send the API key with every request', async () => {
+    const term = 'interlocks';
+    const location = 'boston';
+    nock('https://api.yelp.com', {
+      reqheaders: {
+        authorization: 'Bearer token',
+        'Content-Type': 'application/json',
+      },
+    })
+      .get(
+        `/v3/businesses/search?term=${term}&category=(hairstylists, US)&location=${location}&limit=50`,
+      )
+      .reply(200, mockSearchData);
+    const res = await request(app).get(
+      `/api/search?term=${term}&location=${location}`,
+    );
+    console.log(res.headers, 'headers');
+    // expect(res.headers['Authorization']).toBe(process.env.YELP_API_KEY);
+    expect(res.headers['authorization']).toBe('Bearer token');
+  });
   it('should get search results based on a term and location', async () => {
     const term = 'interlocks';
     const location = 'boston';
